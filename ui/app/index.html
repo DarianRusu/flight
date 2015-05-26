@@ -1,0 +1,53 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title></title>
+  <meta name="description" content="">
+  <meta content='width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no' name='viewport'>
+  <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.min.css">
+  <link rel="stylesheet" href="styles/font-awesome.css">
+  <link rel="stylesheet" href="bower_components/angular-chart.js/dist/angular-chart.css">
+  <link rel="stylesheet" href="styles/main.css">
+</head>
+<body ng-app="flight">
+<div id="wrapper">
+  <menu></menu>
+
+  <div id="page-wrapper" >
+
+    <div class="container-fluid" ui-view="">
+    </div>
+    <!-- /.container-fluid -->
+
+  </div>
+
+</div>
+
+<script src="bower_components/jquery/jquery.js"></script>
+<script src="bower_components/angular/angular.js"></script>
+<script src="bower_components/Chart.js/Chart.js"></script>
+<script src="bower_components/angular-chart.js/angular-chart.js"></script>
+<script src="bower_components/angular-ui-router/release/angular-ui-router.js"></script>
+<script src="bower_components/angular-cookies/angular-cookies.js"></script>
+<script src="bower_components/angular-bootstrap/ui-bootstrap.js"></script>
+<script src="bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+<script src="bower_components/underscore/underscore.js"></script>
+<script src="modules/common/wrappers/underscore.js"></script>
+
+<script src="app.js"></script>
+<script src="modules/common/common.js"></script>
+<script src="modules/common/services/mlrest.js"></script>
+<script src="components/menu/menu.js"></script>
+<script src="modules/dashboard/dashboard.js"></script>
+<script src="modules/dashboard/controllers/dashboardCtrl.js"></script>
+<script src="modules/predictive/predict.js"></script>
+<script src="modules/predictive/controllers/predictCtrl.js"></script>
+<script src="modules/auth/auth.js"></script>
+<script src="modules/auth/services/authSrv.js"></script>
+<script src="modules/common/services/mlrest.js"></script>
+
+
+
+</body>
+</html>

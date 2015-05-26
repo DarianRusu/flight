@@ -1,0 +1,17 @@
+node_modules
+tmp
+.*.swp
+.project
+dist
+bower_components
+main.css
+scan.css
+home.css
+theme.css
+.idea
+*.*~
+/.buildpath
+/.settings
+import/data/parts_tmp/
+import/data/indexes_tmp/
+dll-demo/ocr/images/

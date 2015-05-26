@@ -1,0 +1,41 @@
+<nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+	<div class="navbar-header">
+		<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
+			<span class="sr-only">Toggle navigation</span>
+			<span class="icon-bar"></span>
+			<span class="icon-bar"></span>
+			<span class="icon-bar"></span>
+		</button>
+		<a class="navbar-brand" href="index.html">Flight</a>
+	</div>
+	<div ng-if="!currentUser.authenticated">
+		<ul class="nav navbar-nav navbar-right">
+			<li ng-show="!currentUser.authenticating"><a href="#" ng-click="login(username, password)">Sign in</a></li>
+		</ul>
+		<form class="navbar-form navbar-right" ng-cloak="">
+			<span class="alert alert-danger" ng-if="currentUser.loginError" ng-cloak>Username and/or Password Incorrect</span>
+			<div class="form-group">
+				<input ng-keyup="$event.keyCode == 13 && login(username, password)" type="text" class="form-control input-sm" placeholder="Username" ng-model="username" autocomplete="off">
+			</div>
+			<div class="form-group">
+				<input ng-keyup="$event.keyCode == 13 && login(username, password)" type="password" class="form-control input-sm" placeholder="Password" ng-model="password" autocomplete="off">
+			</div>
+		</form>
+	</div>
+
+
+
+
+	<!-- Sidebar Menu Items - These collapse to the responsive navigation menu on small screens -->
+	<div class="collapse navbar-collapse navbar-ex1-collapse">
+		<ul class="nav navbar-nav side-nav">
+			<li ng-class="activeOnStates(['dashboard'])">
+				<a ui-sref="dashboard"><i class="fa fa-fw fa-dashboard"></i> Dashboard</a>
+			</li>
+			<li ng-class="activeOnStates(['predict'])">
+				<a ui-sref="predict"><i class="fa fa-fw fa-bar-chart-o"></i> Predict</a>
+			</li>
+		</ul>
+	</div>
+	<!-- /.navbar-collapse -->
+</nav>

@@ -1,0 +1,122 @@
+<div ng-hide="currentUser.authenticated" >
+    Please log in to see content
+</div>
+<div ng-show="currentUser.authenticated">
+    <div class="row title">
+        <h1 class="page-header">
+            Dashboard <small>Statistics Overview</small>
+        </h1>
+    </div>
+    <div class="row">
+        <div class="col-lg-3 col-md-3">
+            <div class="panel panel-primary">
+                <div class="panel-heading">
+                    <div class="row">
+                        <div class="col-xs-3">
+                            <i class="fa fa-road fa-5x"></i>
+                        </div>
+                        <div class="col-xs-9 text-right">
+                            <div class="huge">{{absolutes.longestFlight}}min</div>
+                            <div>Longest flight</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-3 col-md-3">
+            <div class="panel panel-green">
+                <div class="panel-heading">
+                    <div class="row">
+                        <div class="col-xs-3">
+                            <i class="fa fa-clock-o fa-5x"></i>
+                        </div>
+                        <div class="col-xs-9 text-right">
+                            <div class="huge">{{absolutes.maxDepDelay}}min</div>
+                            <div>Largest departure delay</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-3 col-md-3">
+            <div class="panel panel-yellow">
+                <div class="panel-heading">
+                    <div class="row">
+                        <div class="col-xs-3">
+                            <i class="fa fa-clock-o fa-5x"></i>
+                        </div>
+                        <div class="col-xs-9 text-right">
+                            <div class="huge">{{absolutes.maxArrDelay}}min</div>
+                            <div>Largest arrival delay</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-3 col-md-6">
+            <div class="panel panel-red">
+                <div class="panel-heading">
+                    <div class="row">
+                        <div class="col-xs-3">
+                            <i class="fa fa-plane fa-5x"></i>
+                        </div>
+                        <div class="col-xs-9 text-right">
+                            <div class="huge">{{absolutes.longestDistance}}mi</div>
+                            <div>Longest distance flight</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-4 chart-div">
+            <!--<h6 class="chart-title">Avg departure delay vs arrival delay (in min)</h6>-->
+            <canvas id="departures-delay" class="chart chart-doughnut" data="departuresDelayData.data"
+                    labels="departuresDelayData.labels"></canvas>
+        </div>
+        <div class="col-md-4 chart-div">
+            <!--<h6 class="chart-title">Avg delays by companies (top 5)</h6>-->
+            <canvas id="arrivals-delay" class="chart chart-doughnut" data="arrivalsDelayData.data"
+                    labels="arrivalsDelayData.labels"></canvas>
+        </div>
+        <div class="col-md-4      chart-div">
+            <!--<h6 class="chart-title">Avg departure delay vs arrival delay (in min)</h6>-->
+            <canvas id="pie2" class="chart chart-pie" data="delayTypes.data"
+                    labels="delayTypes.labels"></canvas>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-10 col-md-offset-1">
+            <canvas id="line-hourly-delays" class="chart chart-line" data="hourlyDelays.data"
+                    labels="hourlyDelays.labels" legend="false" series="hourlyDelays.series"
+                    click="onClick" options="hourlyDelays.options"
+                    >
+            </canvas>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-lg-5 col-md-offset-1">
+            <h2>Basic Table</h2>
+            <div class="table-responsive">
+                <table class="table table-hover">
+                    <thead>
+                    <tr>
+                        <th>Carrier</th>
+                        <th>avgArrDelay</th>
+                        <th>avgDepDelay</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr ng-repeat="row in carrierData">
+                        <td>{{row.carrier}}</td>
+                        <td>{{row.avgArrDelay}}</td>
+                        <td>{{row.avgDepDelay}}</td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,30 @@
+<pipeline xmlns="http://marklogic.com/cpf/pipelines">
+  <pipeline-name>Lookup tables</pipeline-name>
+  <pipeline-description>Get data(descriptions from lookup tables)</pipeline-description>
+  <success-action>
+    <module>/MarkLogic/cpf/actions/success-action.xqy</module>
+  </success-action>
+  <failure-action>
+    <module>/MarkLogic/cpf/actions/failure-action.xqy</module>
+  </failure-action>
+  <state-transition>
+    <annotation>
+      when a new flight is added add descriptions from lookup tables
+    </annotation>
+    <state>http://marklogic.com/states/initial</state>
+    <on-success>http://marklogic.com/states/done</on-success>
+    <on-failure>http://marklogic.com/states/error</on-failure>
+    <execute>
+      <condition>
+        <module>/MarkLogic/cpf/actions/namespace-condition.xqy</module>
+        <options xmlns="/MarkLogic/cpf/actions/namespace-condition.xqy">
+          <root-element>flight</root-element>
+          <namespace/>
+        </options>
+      </condition>
+      <action>
+        <module>/app/actions/lookup-action.xqy</module>
+      </action>
+    </execute>
+  </state-transition>
+</pipeline>
