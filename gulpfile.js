@@ -25,9 +25,9 @@ var uglify = require('gulp-uglify');
 var run = require('gulp-run');
 
 var options = {
-  appPort: argv['app-port'] || 9080,
+  appPort: argv['app-port'] || 8050,
   mlHost: argv['ml-host'] || 'localhost',
-  mlPort: argv['ml-port'] || '9070'
+  mlPort: argv['ml-port'] || '8040'
 };
 
 gulp.task('jshint', function() {

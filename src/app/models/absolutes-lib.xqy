@@ -3,12 +3,12 @@ xquery version "1.0-ml";
 module namespace a = "http://marklogic.com/roxy/models/absolutes-lib";
 
 declare function a:absolutes(){
-    let $cAd := fn:count(/flight[./ArrDelay gt 0])
-    let $cAot := fn:count(/flight[./ArrDelay le 0])
+    let $cAd := xdmp:estimate(/flight[./ArrDelay gt 0])
+    let $cAot := xdmp:estimate(/flight[./ArrDelay le 0])
     let $cAtotal := fn:sum(($cAd,$cAot))
 
-    let $cDd := fn:count(/flight[./DepDelay gt 0])
-    let $cDot := fn:count(/flight[./DepDelay le 0])
+    let $cDd := xdmp:estimate(/flight[./DepDelay gt 0])
+    let $cDot := xdmp:estimate(/flight[./DepDelay le 0])
     let $cDtotal := fn:sum(($cAd,$cAot))
     let $pAd := ($cAd * 100) div $cAtotal
     let $pAot := ($cAot * 100) div $cAtotal

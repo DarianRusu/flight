@@ -203,7 +203,6 @@ exports.buildExpress = function(options) {
   app.use('/', express.static('ui/app'));
   // for paths that should be handled by AngularJS, add a line here similar to /profile.
   app.use('/dashboard', express.static('ui/app/index.html'));
-
   return app;
 };
 

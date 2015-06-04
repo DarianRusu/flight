@@ -10,7 +10,7 @@ if (cpf:check-transition($cpf:document-uri,$cpf:transition))
 then try {
       l:add-carrier-info($cpf:document-uri),
       l:add-airline-info($cpf:document-uri),
-      xdmp:log( "add copyright ran OK" ),
+      xdmp:log( "add lookup ran OK" ),
       cpf:success( $cpf:document-uri, $cpf:transition, () )
     }
     catch ($e) {
