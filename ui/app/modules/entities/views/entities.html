@@ -1,0 +1,43 @@
+<div>
+    <div class="row">
+        <div class="col-lg-5 col-md-offset-1">
+            <h2>Carriers</h2>
+            <div class="table-responsive">
+                <table class="table table-hover">
+                    <thead>
+                    <tr>
+                        <th>Carrier</th>
+                        <th>avgArrDelay</th>
+                        <th>avgDepDelay</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr ng-repeat="row in carrierData">
+                        <td>{{row.carrier}}</td>
+                        <td>{{row.avgArrDelay}}</td>
+                        <td>{{row.avgDepDelay}}</td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-lg-8 col-md-offset-1" class="table-responsive">
+            <h2>Aiports</h2>
+            <label><input placeholder="Search..." class="form-control" ng-model="searchText"></label>
+            <table at-table at-list="aiportData | filter:searchText" at-paginated class="table table-hover" at-config="config">
+                <thead></thead>
+                <tbody>
+                <tr>
+                    <td at-implicit at-sortable at-attribute="aiport" width="150"></td>
+                    <td at-implicit at-sortable at-attribute="avgDelay"></td>
+                    <td at-implicit at-sortable at-attribute="onTime"></td>
+                    <td at-implicit at-sortable at-attribute="late"></td>
+                </tr>
+                </tbody>
+            </table>
+            <at-pagination at-list="aiportData" at-config="config"></at-pagination>
+        </div>
+    </div>
+</div>

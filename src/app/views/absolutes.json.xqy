@@ -26,9 +26,9 @@ declare function aj:aiport-delays-json($results as item()) {
         for $item in $results/item
         return json:o((
             "aiport",json:iv(($item/airport/carrier/fn:string())),
-            "late",json:iv(($item/late/fn:string())),
-            "avgDepDelay",json:iv(($item/on-time/fn:string())),
-            "avgDelay",json:iv(($item/avg-delay/avg-delay-dep/fn:string()))
+            "late",$item/late/fn:string(),
+            "onTime",$item/on-time/fn:string(),
+            "avgDelay",$item/avg-delay/avg-delay-dep/fn:string()
         ))
     ))
 };

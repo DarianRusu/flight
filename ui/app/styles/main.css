@@ -139,3 +139,6 @@ h1{
   text-align: center;
   border-bottom: 1px solid #eee;
 }
+.short-graph canvas{
+    max-height: 100px;
+}

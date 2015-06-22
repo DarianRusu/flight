@@ -87,53 +87,46 @@
         </div>
     </div>
     <div class="row">
-        <div class="col-md-5 col-md-offset-1">
-            <canvas id="line-hourly-delays" class="chart chart-line" data="hourlyDelays.data"
-                    labels="hourlyDelays.labels" legend="false" series="hourlyDelays.series"
-                    click="onClick" options="hourlyDelays.options"
-                    >
-            </canvas>
-        </div>
-        <div class="col-md-5">
-            <div class="row">
-                <div>
-                    <canvas id="weekdays-line-first" class="chart chart-line" data="weekDayMonthDelays.firstMonth.data"
-                            labels="weekDayMonthDelays.firstMonth.labels" legend="false" series="weekDayMonthDelays.firstMonth.series"
-                            click="onClick" options="weekDayMonthDelays.firstMonth.options"
-                            >
-                    </canvas>
-                </div>
-            </div>
-            <div class="row">
-                <div>
-                    <canvas id="weekdays-line-second" class="chart chart-line" data="weekDayMonthDelays.secondMonth.data"
-                            labels="weekDayMonthDelays.secondMonth.labels" legend="false" series="weekDayMonthDelays.secondMonth.series"
-                            click="onClick" options="weekDayMonthDelays.secondMonth.options"
-                            >
-                    </canvas>
-                </div>
-            </div>
-        </div>
-
-    </div>
-
-    <div class="row">
         <div class="col-lg-5 col-md-offset-1">
-            <h2>Basic Table</h2>
+            <h2>Delays</h2>
             <div class="table-responsive">
                 <table class="table table-hover">
                     <thead>
                     <tr>
-                        <th>Carrier</th>
-                        <th>avgArrDelay</th>
-                        <th>avgDepDelay</th>
+                        <th></th>
+                        <th>Departure</th>
+                        <th>Arrival</th>
                     </tr>
                     </thead>
                     <tbody>
-                    <tr ng-repeat="row in carrierData">
-                        <td>{{row.carrier}}</td>
-                        <td>{{row.avgArrDelay}}</td>
-                        <td>{{row.avgDepDelay}}</td>
+                    <tr>
+                        <td>Late</td>
+                        <td>{{departuresDelayData.data[0]}} %</td>
+                        <td>{{arrivalsDelayData.data[0]}} %</td>
+                    </tr>
+                    <tr>
+                        <td>On time</td>
+                        <td>{{departuresDelayData.data[1]}} %</td>
+                        <td>{{arrivalsDelayData.data[1]}} %</td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        <div class="col-lg-5 col-md-offset-1">
+            <h2>Delays by cause</h2>
+            <div class="table-responsive">
+                <table class="table table-hover">
+                    <thead>
+                    <tr>
+                        <th>Cause</th>
+                        <th> % </th>
+                    </tr>
+                    </thead>
+                    <tbody ng-repeat="item in tableTypes">
+                    <tr>
+                        <td>{{item.title}}</td>
+                        <td>{{item.value}} %</td>
                     </tr>
                     </tbody>
                 </table>
