@@ -4,6 +4,7 @@ module namespace ext = "http://marklogic.com/rest-api/resource/carrier-delays";
 declare namespace roxy = "http://marklogic.com/roxy";
 
 import module namespace c = "http://marklogic.com/roxy/models/carrier-delays-lib" at "/app/models/carrier-delays-lib.xqy";
+import module namespace s = "http://marklogic.com/roxy/models/static" at "/app/models/static.xqy";
 import module namespace cj = "http://marklogic.com/roxy/views/carrier-delays.json" at "/app/views/carrier-delays.json.xqy";
 
 
@@ -25,7 +26,7 @@ function ext:get(
 {
   map:put($context, "output-types", "application/xml"),
   xdmp:set-response-code(200, "OK"),
-  document { cj:delays-json(c:get-carrier-delays()) }
+  document { cj:delays-json(s:static-carrier-delays()) }
 };
 
 (:

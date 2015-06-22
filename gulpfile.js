@@ -25,7 +25,7 @@ var uglify = require('gulp-uglify');
 var run = require('gulp-run');
 
 var options = {
-  appPort: argv['app-port'] || 8050,
+  appPort: argv['app-port'] || 9010,
   mlHost: argv['ml-host'] || 'localhost',
   mlPort: argv['ml-port'] || '8040'
 };

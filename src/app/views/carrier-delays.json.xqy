@@ -11,5 +11,4 @@ declare function cj:delays-json($results as item()) {
                     "avgDepDelay",json:iv(($item/avg-delay-dep/fn:string()))
                     ))
             ))
-
 };

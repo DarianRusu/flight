@@ -47,11 +47,47 @@ angular.module('flight.dashboard').controller('DashboardCtrl', ['$scope', 'AuthS
                     };
                 });
         };
+        $scope.getWeekdayMonthDelays = function() {
+            return MLRest.callExtension('weekday-delays', { 'method' : 'GET'})
+                .then(function(data){
+                    $scope.weekDayMonthDelays = {
+                        firstMonth : {
+                            labels : data.firstMonth.arrivals.weekday,
+                            series : ['Arrivals', 'Departures'],
+                            data : [
+                                data.firstMonth.arrivals.avgDelays,
+                                data.firstMonth.departures.avgDelays
+                            ],
+                            options: {
+                                scaleShowVerticalLines: false,
+                                barShowStroke : false,
+                                datasetFill : false
+                            },
+                            colours: ['Blue','Gray']
+                        },
+                        secondMonth : {
+                            labels : data.secondMonth.arrivals.weekday,
+                            series : ['Arrivals', 'Departures'],
+                            data : [
+                                data.secondMonth.arrivals.avgDelays,
+                                data.secondMonth.departures.avgDelays
+                            ],
+                            options: {
+                                scaleShowVerticalLines: false,
+                                barShowStroke : false,
+                                datasetFill : false
+                            },
+                            colours: ['Blue','Gray']
+                        }
+
+                    };
+                    console.log($scope.weekDayMonthDelays);
+                });
+        };
         $scope.getCarrierData = function() {
             return MLRest.callExtension('carrier-delays', { 'method' : 'GET'})
                 .then(function(data){
                     $scope.carrierData = data;
-                    console.log($scope.carrierData);
                 });
         };
         $scope.onClick = function (points, evt) {
@@ -60,4 +96,5 @@ angular.module('flight.dashboard').controller('DashboardCtrl', ['$scope', 'AuthS
         $scope.getAbsolutes();
         $scope.getHourlyDelays();
         $scope.getCarrierData();
+        $scope.getWeekdayMonthDelays();
 }]);

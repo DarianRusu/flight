@@ -4,7 +4,6 @@ tmp
 .project
 dist
 bower_components
-main.css
 scan.css
 home.css
 theme.css

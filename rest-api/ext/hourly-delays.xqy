@@ -5,6 +5,7 @@ module namespace ext = "http://marklogic.com/rest-api/resource/hourly-delays";
 declare namespace roxy = "http://marklogic.com/roxy";
 
 import module namespace w = "http://marklogic.com/roxy/models/hourly-delays-lib" at "/app/models/hourly-delays-lib.xqy";
+import module namespace s = "http://marklogic.com/roxy/models/static" at "/app/models/static.xqy";
 import module namespace wj = "http://marklogic.com/roxy/views/hourly-delays.json" at "/app/views/hourly-delays.json.xqy";
 
 
@@ -26,7 +27,7 @@ function ext:get(
 {
   map:put($context, "output-types", "application/xml"),
   xdmp:set-response-code(200, "OK"),
-  document { wj:delays-json(w:get-hourly-delays()) }
+  document { wj:delays-json(s:static-hourly()) }
 };
 
 (:

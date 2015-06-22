@@ -3,7 +3,7 @@ var app = angular.module('flight', [ 'ngCookies','ui.router', 'ui.bootstrap', 'f
 
 	.config(['$urlRouterProvider', '$locationProvider', function ($urlRouterProvider, $locationProvider) {
 
-		$urlRouterProvider.otherwise('/');
+		$urlRouterProvider.otherwise('/dashboard');
 		$locationProvider.html5Mode({
 			enabled: true,
 			requireBase: false

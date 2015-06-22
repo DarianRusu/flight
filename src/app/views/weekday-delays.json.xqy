@@ -5,26 +5,53 @@ import module namespace json = "http://marklogic.com/roxy/simple-json-lib" at "/
 declare function wj:delays-json($results as item()) {
 
     json:o((
-        "arrivals",json:o((
-            "weekday",json:oa((
-                for $item in $results/arrivals
-                return $item/weekday/fn:string()
+        "firstMonth",json:o((
+            "arrivals",json:o((
+                "weekday",json:oa((
+                    for $item in $results/first-month/arrivals/weekday
+                    return json:iv(($item/fn:string()))
+                )),
+                "avgDelays",json:oa((
+                    for $item in $results/first-month/arrivals/avg-delay
+                    return json:iv(($item/fn:string()))
+                ))
             )),
-            "avgDelays",json:oa((
-                for $item in $results/arrivals
-                return $item/avg-delay/fn:string()
+            "departures",json:o((
+                "weekday",json:oa((
+                    for $item in $results/first-month/departures/weekday
+                    return json:iv(($item/fn:string()))
+                )),
+                "avgDelays",json:oa((
+                    for $item in $results/first-month/departures/avg-delay
+                    return json:iv(($item/fn:string()))
+                ))
             ))
         )),
-        "departures",json:o((
-            "weekday",json:oa((
-                for $item in $results/departures
-                return $item/weekday/fn:string()
+
+        "secondMonth",json:o((
+            "arrivals",json:o((
+                "weekday",json:oa((
+                    for $item in $results/second-month/arrivals/weekday
+                    return json:iv(($item/fn:string()))
+                )),
+                "avgDelays",json:oa((
+                    for $item in $results/second-month/arrivals/avg-delay
+                    return json:iv(($item/fn:string()))
+                ))
             )),
-            "avgDelays",json:oa((
-                for $item in $results/departures
-                return $item/avg-delay/fn:string()
+            "departures",json:o((
+                "weekday",json:oa((
+                    for $item in $results/second-month/departures/weekday
+                    return json:iv(($item/fn:string()))
+                )),
+                "avgDelays",json:oa((
+                    for $item in $results/second-month/departures/avg-delay
+                    return json:iv(($item/fn:string()))
+                ))
             ))
         ))
     ))
+
+
 
 };

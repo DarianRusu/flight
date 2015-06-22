@@ -20,3 +20,65 @@ declare function aj:absolutes-json($results as item()) {
     ))
 
 };
+
+declare function aj:aiport-delays-json($results as item()) {
+    json:oa((
+        for $item in $results/item
+        return json:o((
+            "aiport",json:iv(($item/airport/carrier/fn:string())),
+            "late",json:iv(($item/late/fn:string())),
+            "avgDepDelay",json:iv(($item/on-time/fn:string())),
+            "avgDelay",json:iv(($item/avg-delay/avg-delay-dep/fn:string()))
+        ))
+    ))
+};
+
+declare function aj:distance-delays-json($results as item()) {
+    json:o((
+        "arrivals",json:o((
+            "distance-group",json:oa((
+                for $item in $results/arrivals/item
+                return json:iv(($item/distance/fn:string()))
+            )),
+            "avgDelays",json:oa((
+                for $item in $results/arrivals/item
+                return json:iv(($item/avg-delay/fn:string()))
+            ))
+        )),
+        "departures",json:o((
+            "distance-group",json:oa((
+                for $item in $results/departures/item
+                return json:iv(($item/distance/fn:string()))
+            )),
+            "avgDelays",json:oa((
+                for $item in $results/departures/item
+                return json:iv(($item/avg-delay/fn:string()))
+            ))
+        ))
+    ))
+};
+
+declare function aj:timeb-delays-json($results as item()) {
+    json:o((
+        "arrivals",json:o((
+            "interval",json:oa((
+                for $item in $results/arrivals/item
+                return json:iv(($item/interval/fn:string()))
+            )),
+            "count",json:oa((
+                for $item in $results/arrivals/item
+                return json:iv(($item/count/fn:string()))
+            ))
+        )),
+        "departures",json:o((
+            "interval",json:oa((
+                for $item in $results/departures/item
+                return json:iv(($item/interval/fn:string()))
+            )),
+            "count",json:oa((
+                for $item in $results/departures/item
+                return json:iv(($item/count/fn:string()))
+            ))
+        ))
+    ))
+};

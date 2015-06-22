@@ -1,12 +1,12 @@
 xquery version "1.0-ml";
 
-module namespace ext = "http://marklogic.com/rest-api/resource/weekday-delays";
+module namespace ext = "http://marklogic.com/rest-api/resource/flightb-delays";
 
 declare namespace roxy = "http://marklogic.com/roxy";
 
-import module namespace w = "http://marklogic.com/roxy/models/weekday-delays-lib" at "/app/models/weekday-delays-lib.xqy";
+import module namespace a = "http://marklogic.com/roxy/models/absolutes-lib" at "/app/models/absolutes-lib.xqy";
 import module namespace s = "http://marklogic.com/roxy/models/static" at "/app/models/static.xqy";
-import module namespace wj = "http://marklogic.com/roxy/views/weekday-delays.json" at "/app/views/weekday-delays.json.xqy";
+import module namespace aj = "http://marklogic.com/roxy/views/absolutes.json" at "/app/views/absolutes.json.xqy";
 
 
 (: 
@@ -27,7 +27,7 @@ function ext:get(
 {
   map:put($context, "output-types", "application/xml"),
   xdmp:set-response-code(200, "OK"),
-  document { wj:delays-json(s:static-daily-month()) }
+  document { aj:timeb-delays-json(s:time-block-over-delays()) }
 };
 
 (:
