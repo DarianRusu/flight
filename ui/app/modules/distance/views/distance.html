@@ -1,0 +1,39 @@
+<div>
+    <div class="row title">
+        <h1 class="page-header">
+            Distance <small>Delays evolution over distance</small>
+        </h1>
+    </div>
+    <div class="row">
+        <div class="col-md-10 col-md-offset-1">
+            <canvas id="distance-groups-delays" class="chart chart-bar" data="distanceGroupsDelays.data"
+                    labels="distanceGroupsDelays.labels" legend="true" series="distanceGroupsDelays.series"
+                    click="onClick" options="distanceGroupsDelays.options"
+                    >
+            </canvas>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-lg-10 col-md-offset-1">
+            <h2>Delays over distance</h2>
+            <div class="table-responsive">
+                <table class="table table-hover">
+                    <thead>
+                    <tr>
+                        <th>Distance Group</th>
+                        <th>Arrival delay</th>
+                        <th>Departure Delay</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr ng-repeat="row in tableData">
+                        <td>{{row.day}}</td>
+                        <td>{{row.avgArrDelay}} %</td>
+                        <td>{{row.avgDepDelay}} %</td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>

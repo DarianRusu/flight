@@ -2,6 +2,7 @@
 
     <div class="row">
         <div class="col-md-10 col-md-offset-1">
+            <h4 class="chart-title">Average delay in minutes by hour of the day</h4>
             <canvas id="line-hourly-delays" class="chart chart-line" data="hourlyDelays.data"
                     labels="hourlyDelays.labels" legend="false" series="hourlyDelays.series"
                     click="onClick" options="hourlyDelays.options"
@@ -11,12 +12,12 @@
     </div>
     <div class="row">
         <div class="col-lg-10 col-md-offset-1">
-            <h2>Carriers</h2>
+            <h2>Hourly delays</h2>
             <div class="table-responsive">
                 <table class="table table-hover">
                     <thead>
                     <tr>
-                        <th>Day of month</th>
+                        <th>Hour of the day</th>
                         <th>Arrival delay</th>
                         <th>Departure Delay</th>
                     </tr>
@@ -24,8 +25,8 @@
                     <tbody>
                     <tr ng-repeat="row in tableData">
                         <td>{{row.day}}</td>
-                        <td>{{row.avgArrDelay}} %</td>
-                        <td>{{row.avgDepDelay}} %</td>
+                        <td>{{row.avgArrDelay}}</td>
+                        <td>{{row.avgDepDelay}}</td>
                     </tr>
                     </tbody>
                 </table>
@@ -34,6 +35,7 @@
     </div>
     <div class="row">
         <div class="col-md-10 col-md-offset-1">
+            <h4 class="chart-title">Daily trend comparison of delay avg between two months</h4>
             <div class="short-graph">
                     <canvas id="weekdays-line-first" class="chart chart-line" data="weekDayMonthDelays.firstMonth.data"
                             labels="weekDayMonthDelays.firstMonth.labels" legend="false" series="weekDayMonthDelays.firstMonth.series"

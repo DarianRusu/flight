@@ -205,6 +205,7 @@ exports.buildExpress = function(options) {
   app.use('/dashboard', express.static('ui/app/index.html'));
   app.use('/time', express.static('ui/app/index.html'));
   app.use('/entities', express.static('ui/app/index.html'));
+    app.use('/distance', express.static('ui/app/index.html'));
   return app;
 };
 

@@ -71,23 +71,26 @@
     </div>
     <div class="row">
         <div class="col-md-4 chart-div">
+            <h4 class="chart-title">Departures</h4>
             <!--<h6 class="chart-title">Avg departure delay vs arrival delay (in min)</h6>-->
             <canvas id="departures-delay" class="chart chart-doughnut" data="departuresDelayData.data"
-                    labels="departuresDelayData.labels"></canvas>
+                    labels="departuresDelayData.labels" legend="true"></canvas>
         </div>
         <div class="col-md-4 chart-div">
+            <h4 class="chart-title">Arrivals</h4>
             <!--<h6 class="chart-title">Avg delays by companies (top 5)</h6>-->
             <canvas id="arrivals-delay" class="chart chart-doughnut" data="arrivalsDelayData.data"
-                    labels="arrivalsDelayData.labels"></canvas>
+                    labels="arrivalsDelayData.labels" legend="true"></canvas>
         </div>
-        <div class="col-md-4      chart-div">
+        <div class="col-md-4 chart-div">
+            <h4 class="chart-title">Delay types</h4>
             <!--<h6 class="chart-title">Avg departure delay vs arrival delay (in min)</h6>-->
             <canvas id="pie2" class="chart chart-pie" data="delayTypes.data"
-                    labels="delayTypes.labels"></canvas>
+                    labels="delayTypes.labels" legend="true"></canvas>
         </div>
     </div>
     <div class="row">
-        <div class="col-lg-5 col-md-offset-1">
+        <div class="col-lg-5">
             <h2>Delays</h2>
             <div class="table-responsive">
                 <table class="table table-hover">

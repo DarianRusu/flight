@@ -8,7 +8,7 @@ angular.module('flight.time').controller('timeCtrl', ['$scope', 'AuthSrv', 'MLRe
             return MLRest.callExtension('hourly-delays', { 'method' : 'GET'})
                 .then(function(data){
                     $scope.hourlyDelays = {
-                        labels : data.arrivals.weekday,
+                        labels : data.departures.weekday,
                         series : ['Arrivals', 'Departures'],
                         data : [
                             data.arrivals.avgDelays,
@@ -21,9 +21,9 @@ angular.module('flight.time').controller('timeCtrl', ['$scope', 'AuthSrv', 'MLRe
                         colours: ['Blue','Gray']
 
                     };
-                    for (var i = 0; i < data.arrivals.avgDelays.length; i++) {
+                    for (var i = 0; i < data.departures.avgDelays.length; i++) {
                         var aux = {
-                            day : data.arrivals.weekday[i],
+                            day : data.departures.weekday[i],
                             avgDepDelay: parseFloat(Math.round(data.departures.avgDelays[i] * 100) / 100).toFixed(2),
                             avgArrDelay: parseFloat(Math.round(data.arrivals.avgDelays[i] * 100) / 100).toFixed(2)
                         };

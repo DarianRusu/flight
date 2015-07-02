@@ -1,5 +1,5 @@
 var app = angular.module('flight', [ 'ngCookies','ui.router', 'ui.bootstrap', 'flight.menu'
-    , 'flight.time', 'flight.entities', 'flight.auth', 'flight.dashboard','flight.common'
+    , 'flight.time', 'flight.entities', 'flight.distance', 'flight.auth', 'flight.dashboard','flight.common'
 	,'underscore','angular-table'])
 
 	.config(['$urlRouterProvider', '$locationProvider', function ($urlRouterProvider, $locationProvider) {

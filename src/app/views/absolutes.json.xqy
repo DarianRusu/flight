@@ -36,7 +36,7 @@ declare function aj:aiport-delays-json($results as item()) {
 declare function aj:distance-delays-json($results as item()) {
     json:o((
         "arrivals",json:o((
-            "distance-group",json:oa((
+            "distanceGroup",json:oa((
                 for $item in $results/arrivals/item
                 return json:iv(($item/distance/fn:string()))
             )),
@@ -46,7 +46,7 @@ declare function aj:distance-delays-json($results as item()) {
             ))
         )),
         "departures",json:o((
-            "distance-group",json:oa((
+            "distanceGroup",json:oa((
                 for $item in $results/departures/item
                 return json:iv(($item/distance/fn:string()))
             )),
